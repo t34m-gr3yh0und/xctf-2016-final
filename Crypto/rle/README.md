@@ -25,7 +25,8 @@ We can recognize a same format for the given messages:
 
 Further inspection in the encrypted code, we see hex numbers with 1 or 2 digits.
 Another observation is that after each string `0:<n>:` are n two-digit hex numbers. Counting the number of 2-digit hex numbers, we find that it is the same as the length of the decoded string.
--> Each 2-digit hex number represents an ASCII character
+
+-> Each 2-digit hex number represents an ASCII character.
 The task now is to find the correct key for decryption.
 
 Notice that the number of sequences of consecutive 2-digit hex numbers is exactly the length of `<KEY>`. Therefore, there should be connection between each hex sequence with the corresponding character in `<KEY>`.
@@ -40,13 +41,13 @@ def decrypt(message):
 
     ans = []
     i = -1
-    flag = False
+    newseq = False
     for s in enc.split(':'):
         if s == '0':
-            flag = True
+            newseq = True
         elif flag:            
             i += 1
-            flag = False
+            newseq = False
         else:
             c = int(s, base=16)^ord(key[i])
             ans.append(chr(c))
