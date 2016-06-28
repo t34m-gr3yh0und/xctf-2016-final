@@ -18,7 +18,7 @@ which is a very useful command, as you can do a ```ls``` with these commands
 ```
 The third will show you the file that contains the flag.
 ```
-fl_ag_come_at_me_bro
+/dev/treasure/fl_ag_come_at_me_bro
 ```
 Now to show the contents of this file. However, you cannot use any of the commonly used commands like ```cat```, ```head``` or ```tail```. But you can use ```read``` and you can write a shell script that is ```/bin/sh``` based.
 
@@ -26,6 +26,6 @@ So what you need to do is
 ```sh
     $ while read line; do    
     > echo $line    
-    > done < /dev/fl_ag_come_at_me_bro
+    > done < /dev/treasure/fl_ag_come_at_me_bro
 ```
 And you will be able to get the flag.
